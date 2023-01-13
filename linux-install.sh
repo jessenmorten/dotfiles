@@ -12,5 +12,10 @@ rm -rf ~/.tmux
 git clone https://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
 cp ./tmux/.tmux.conf ~/.tmux.conf
 
+# Zsh
+echo "Installing Zsh configuration..."
+rm ~/.zshrc
+cp ./zsh/.zshrc ~/.zshrc
+
 # Install complete
 echo "Dotfiles installed successfully!"
