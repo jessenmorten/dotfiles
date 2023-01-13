@@ -1,4 +1,18 @@
-echo "Installing dotfiles..."
+# Exit script if any statement returns a non-true return value
+set -e
+
+# Ensure dependencies are installed
+echo "Checking dependencies..."
+git --version
+nvim --version
+tmux -V
+zsh --version
+cargo --version
+rustc --version
+rustup --version
+go version
+ls ~/.oh-my-zsh
+make --version
 
 # NeoVim
 echo "Installing NeoVim configuration..."
