@@ -10,6 +10,7 @@ zsh --version
 cargo --version
 rustc --version
 rustup --version
+rg --version
 go version
 ls ~/.oh-my-zsh
 make --version
