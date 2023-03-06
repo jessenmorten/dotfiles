@@ -44,9 +44,6 @@ require('packer').startup(function(use)
     after = 'nvim-treesitter',
   }
 
-  -- GitHub CoPilot
-  use("github/copilot.vim")
-
   -- Git related plugins
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
