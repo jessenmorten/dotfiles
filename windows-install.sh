@@ -17,5 +17,10 @@ echo "Installing NeoVim configuration..."
 rm -rf $USERPROFILE/AppData/Local/nvim
 cp -r ./nvim $USERPROFILE/AppData/Local/nvim
 
+# Alacritty
+echo "Installing Alacritty configuration..."
+rm -rf $USERPROFILE/AppData/Roaming/alacritty
+cp -r ./alacritty $USERPROFILE/AppData/Roaming/alacritty
+
 # Install complete
 echo "Dotfiles installed successfully!"
