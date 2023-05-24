@@ -108,6 +108,7 @@ lsp.setup_nvim_cmp({
         ['<C-p>'] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Select }),
         ['<C-n>'] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Select }),
         ['<Tab>'] = require("cmp").mapping.confirm({ select = true }),
+        ['<CR>'] = require("cmp").mapping.confirm({ select = true }),
         ["<C-Space>"] = require("cmp").mapping.complete(),
     })
 })
