@@ -104,17 +104,20 @@ end, { desc = '[/] Fuzzily search in current buffer]' })
 -- lsp
 require('mason').setup()
 local lsp = require("lsp-zero")
-
 lsp.preset("recommended")
-lsp.setup_nvim_cmp({
-    mapping = lsp.defaults.cmp_mappings({
-        ['<C-p>'] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Select }),
-        ['<C-n>'] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Select }),
-        ['<Tab>'] = require("cmp").mapping.confirm({ select = true }),
-        ['<CR>'] = require("cmp").mapping.confirm({ select = true }),
-        ["<C-Space>"] = require("cmp").mapping.complete(),
-    })
+
+local cmp_mappings = lsp.defaults.cmp_mappings({
+    ['<C-p>'] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Select }),
+    ['<C-n>'] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Select }),
+    ['<C-y>'] = require("cmp").mapping.confirm({ select = true }),
+    ['<CR>'] = require("cmp").mapping.confirm({ select = true }),
+    ["<C-Space>"] = require("cmp").mapping.complete(),
 })
+
+cmp_mappings["<Tab>"] = nil
+cmp_mappings["<S-Tab>"] = nil
+
+lsp.setup_nvim_cmp({ mapping = cmp_mappings })
 
 lsp.set_preferences({
     sign_icons = {
