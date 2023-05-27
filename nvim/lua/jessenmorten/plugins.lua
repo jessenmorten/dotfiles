@@ -135,7 +135,7 @@ lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+    vim.keymap.set("n", "gi", require("telescope.builtin").lsp_implementations, opts)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, opts)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
