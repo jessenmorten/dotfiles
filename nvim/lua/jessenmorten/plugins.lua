@@ -72,6 +72,9 @@ require("gitsigns").setup {
     },
 }
 
+-- comment
+require('Comment').setup()
+
 -- telescope setup
 require('telescope').setup {
     defaults = {
