@@ -4,7 +4,7 @@ require("nvim-tree").setup({
         dotfiles = true,
         exclude = {
             ".github",
-            ".gitingore",
+            ".gitignore",
         },
     },
     update_focused_file = {
