@@ -16,6 +16,12 @@ require('packer').startup(function(use)
     -- colorscheme
     use { "catppuccin/nvim", as = "catppuccin" }
 
+    -- devicons
+    use 'nvim-tree/nvim-web-devicons'
+
+    -- nvim-tree
+    use 'nvim-tree/nvim-tree.lua'
+
     -- lualine
     use {
         'nvim-lualine/lualine.nvim',
