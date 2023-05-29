@@ -1,5 +1,11 @@
 -- setup nvim-tree
 require("nvim-tree").setup({
+    filters = {
+        dotfiles = true,
+        exclude = {
+            ".github",
+        },
+    },
     update_focused_file = {
         enable = true,
         update_root = true,
