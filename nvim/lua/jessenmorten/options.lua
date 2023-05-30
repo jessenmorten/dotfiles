@@ -15,4 +15,5 @@ vim.opt.smartcase = true                                                    -- o
 vim.opt.updatetime = 250                                                    -- if this many milliseconds nothing is typed the swap file will be written to disk
 vim.opt.signcolumn = "yes"                                                  -- whether or not to draw the signcolumn
 vim.opt.cmdheight = 0                                                       -- hide command line when not in use
-
+vim.opt.completeopt = 'menuone,noselect'                                    -- completion options
+vim.opt.termguicolors = true                                                -- enable 24-bit RGB color in the TUI
