@@ -17,3 +17,13 @@ vim.opt.signcolumn = "yes"                                                  -- w
 vim.opt.cmdheight = 0                                                       -- hide command line when not in use
 vim.opt.completeopt = 'menuone,noselect'                                    -- completion options
 vim.opt.termguicolors = true                                                -- enable 24-bit RGB color in the TUI
+
+-- highlight on yank
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = '*',
+})
