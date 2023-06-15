@@ -15,7 +15,6 @@ make --version
 # NeoVim
 echo "Installing NeoVim configuration..."
 rm -rf $USERPROFILE/AppData/Local/nvim
-rm -rf $USERPROFILE/AppData/Local/nvim-data/site/pack/packer
 cp -r ./nvim $USERPROFILE/AppData/Local/nvim
 
 # Alacritty
