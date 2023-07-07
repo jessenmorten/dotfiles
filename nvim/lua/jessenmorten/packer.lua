@@ -31,6 +31,9 @@ require('packer').startup(function(use)
     -- copilot
     use 'github/copilot.vim'
 
+    -- fugitive
+    use 'tpope/vim-fugitive'
+
     -- gitsigns
     use 'lewis6991/gitsigns.nvim'
 
@@ -64,7 +67,7 @@ require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' },
 
             -- other
-            { 'j-hui/fidget.nvim' },
+            { 'j-hui/fidget.nvim', tag = "legacy" },
         }
     }
 
