@@ -13,6 +13,9 @@ require('packer').startup(function(use)
     -- packer
     use 'wbthomason/packer.nvim'
 
+    -- null-ls
+    use 'jose-elias-alvarez/null-ls.nvim'
+
     -- colorscheme
     use { "catppuccin/nvim", as = "catppuccin" }
 
