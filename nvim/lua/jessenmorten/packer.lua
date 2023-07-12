@@ -71,6 +71,9 @@ require('packer').startup(function(use)
         }
     }
 
+    -- nvim-notify
+    use 'rcarriga/nvim-notify'
+
     -- sync packer
     if is_bootstrap then
         require('packer').sync()
