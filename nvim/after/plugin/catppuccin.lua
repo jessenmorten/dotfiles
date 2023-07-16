@@ -9,7 +9,7 @@ require("catppuccin").setup({
     dim_inactive = {
         enabled = true,
         shade = "dark",
-        percentage = 0.5,
+        percentage = 0.1,
     },
     styles = {
         comments = { "italic" },
