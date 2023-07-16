@@ -22,5 +22,10 @@ echo "Installing Alacritty configuration..."
 rm -rf $USERPROFILE/AppData/Roaming/alacritty
 cp -r ./alacritty $USERPROFILE/AppData/Roaming/alacritty
 
+# Git
+echo "Installing Git configuration..."
+rm -rf $HOME/.config/git
+cp -r ./git $HOME/.config/git
+
 # Install complete
 echo "Dotfiles installed successfully!"
