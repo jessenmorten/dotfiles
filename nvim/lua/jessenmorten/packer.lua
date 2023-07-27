@@ -16,6 +16,9 @@ require('packer').startup(function(use)
     -- null-ls
     use 'jose-elias-alvarez/null-ls.nvim'
 
+    -- treesitter
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
     -- colorscheme
     use { "catppuccin/nvim", as = "catppuccin" }
 
