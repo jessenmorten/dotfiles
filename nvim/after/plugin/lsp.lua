@@ -44,10 +44,25 @@ lsp.on_attach(function(client, bufnr)
         vim.lsp.buf.format()
     end, { desc = 'Format current buffer with LSP' })
 end)
-
 lsp.setup()
 
 vim.diagnostic.config({
     virtual_text = true
 })
 
+local servers = {
+    gopls = {},
+    html = {},
+    csharp_ls = {},
+    lua_ls = {},
+    ruff_lsp = {},
+    rust_analyzer = {},
+    tsserver = {},
+    jsonls = {},
+}
+
+-- Ensure the servers above are installed
+local mason_lspconfig = require 'mason-lspconfig'
+mason_lspconfig.setup {
+    ensure_installed = vim.tbl_keys(servers),
+}
