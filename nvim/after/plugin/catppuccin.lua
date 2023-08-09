@@ -33,6 +33,12 @@ require("catppuccin").setup({
         notify = true,
         mini = false,
     },
+    color_overrides = {
+        mocha = {
+            base = "#161622",
+            mantle = "#191926",
+        },
+    }
 })
 
 -- load the colorscheme
