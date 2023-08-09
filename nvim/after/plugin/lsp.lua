@@ -42,6 +42,7 @@ lsp.on_attach(function(client, bufnr)
     -- create ':Format' command
     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()
+        require("notify")("Formatted current buffer", "info", { title = "LSP" })
     end, { desc = 'Format current buffer with LSP' })
 end)
 lsp.setup()
