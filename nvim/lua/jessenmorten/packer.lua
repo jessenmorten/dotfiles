@@ -13,6 +13,9 @@ require('packer').startup(function(use)
     -- packer
     use 'wbthomason/packer.nvim'
 
+    -- todo-comments
+    use 'folke/todo-comments.nvim'
+
     -- autoclose
     use 'm4xshen/autoclose.nvim'
 
