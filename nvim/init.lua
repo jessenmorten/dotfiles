@@ -26,11 +26,23 @@ local function setup_plugins()
             lazy = true
         },
         {
-            "kyazdani42/nvim-web-devicons",
+            "nvim-tree/nvim-web-devicons",
             lazy = true
         },
 
         -- UI
+        {
+            "folke/trouble.nvim",
+            dependencies = { "nvim-tree/nvim-web-devicons" },
+            opts = {
+                position = "bottom",
+                height = 10, -- used if position is top or bottom
+                width = 50,  -- used if position is left or right
+            },
+            keys = {
+                { "<leader>t", "<cmd>TroubleToggle<cr>", desc = "Toggle trouble list" },
+            }
+        },
         {
             "goolord/alpha-nvim",
             event = "VimEnter",
@@ -172,6 +184,7 @@ local function setup_plugins()
                     telescope = true,
                     notify = true,
                     mini = true,
+                    trouble = true,
                     native_lsp = {
                         enabled = true,
                         underlines = {
@@ -397,13 +410,11 @@ local function setup_plugins()
 
                 lsp.setup_nvim_cmp({ mapping = cmp_mappings })
 
-                lsp.set_preferences({
-                    sign_icons = {
-                        error = 'E',
-                        warn = 'W',
-                        hint = 'H',
-                        info = 'I'
-                    }
+                lsp.set_sign_icons({
+                    error = "",
+                    warn = "",
+                    hint = "",
+                    info = "",
                 })
 
                 lsp.on_attach(function(client, bufnr)
