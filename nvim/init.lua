@@ -453,6 +453,7 @@ local function setup_plugins()
                     jsonls = {},
                     csharp_ls = {},
                     pyright = {},
+                    clangd = {},
                 }
 
                 -- Ensure the servers above are installed
