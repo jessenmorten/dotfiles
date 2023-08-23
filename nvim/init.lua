@@ -184,7 +184,6 @@ local function setup_plugins()
                     telescope = true,
                     notify = true,
                     mini = true,
-                    trouble = true,
                     native_lsp = {
                         enabled = true,
                         underlines = {
@@ -401,7 +400,7 @@ local function setup_plugins()
                     ['<C-p>'] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior.Select }),
                     ['<C-n>'] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Select }),
                     ['<C-y>'] = require("cmp").mapping.confirm({ select = true }),
-                    ['<CR>'] = require("cmp").mapping.confirm({ select = true }),
+                    ['<CR>'] = require("cmp").mapping.confirm({ select = false }),
                     ["<C-Space>"] = require("cmp").mapping.complete(),
                 })
 
