@@ -553,8 +553,8 @@ local function set_autocmds()
     })
 end
 
-set_options()
 bootstrap_lazy()
 setup_plugins()
+set_options()
 set_keymaps()
 set_autocmds()
