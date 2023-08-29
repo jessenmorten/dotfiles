@@ -483,6 +483,7 @@ local function setup_plugins()
 end
 
 local function set_options()
+    vim.opt.guicursor = ""
     vim.opt.number = true -- show line numbers
     vim.opt.relativenumber = true -- show relative line numbers
     vim.opt.tabstop = 4 -- number of spaces that a <tab> in the file counts for
