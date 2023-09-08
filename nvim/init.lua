@@ -13,7 +13,6 @@ local function bootstrap_lazy()
     vim.opt.rtp:prepend(lazypath)
 
     -- Set `mapleader` before loading plugins to ensure correct mappings
-    -- TODO: Move to set_options()?
     vim.g.mapleader = " "
     vim.g.maplocalleader = " "
 end
