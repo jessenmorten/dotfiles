@@ -300,6 +300,7 @@ local function setup_plugins()
                 { "<C-p>",           "<cmd>Telescope git_files<cr>",    desc = "Search git files" },
                 { "<leader><space>", "<cmd>Telescope buffers<cr>",      desc = "List open buffers" },
                 { "<leader>sd",      "<cmd>Telescope diagnostics<cr>",  desc = "List diagnostics" },
+                { "<leader>pc",      "<cmd>Telescope command_history<cr>",  desc = "Command history" },
             },
             config = function()
                 vim.keymap.set("n", "<leader>/", function()
