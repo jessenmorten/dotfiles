@@ -242,7 +242,7 @@ local function setup_plugins()
             "github/copilot.vim",
             lazy = true,
             cmd = "Copilot",
-            event = { "BufReadPost", "BufNewFile" },
+            event = { "VeryLazy" },
             config = function()
                 -- copilot "tab claimed by another plugin" fix
                 vim.g.copilot_assume_mapped = true
