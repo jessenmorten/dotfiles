@@ -316,7 +316,6 @@ local function setup_plugins()
             config = function()
                 local null_ls = require("null-ls")
 
-                -- TODO: Check what other formatters are available
                 null_ls.setup({
                     sources = {
                         null_ls.builtins.diagnostics.markdownlint,
@@ -447,7 +446,7 @@ local function set_options()
     vim.opt.sidescrolloff = 8 -- Columns of context
     vim.opt.scrolloff = 8 -- Lines of context
     vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
-    vim.cmd.colorscheme "catppuccin" -- TODO: Move to setup_plugins()?
+    vim.cmd.colorscheme "catppuccin"
 end
 
 local function set_keymaps()
