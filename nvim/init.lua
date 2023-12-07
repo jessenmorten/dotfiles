@@ -478,6 +478,9 @@ local function set_keymaps()
 
     -- Clear buffers
     vim.keymap.set("n", "<leader>bc", "<cmd>%bd|e#|bd#<cr>", { desc = "Close other buffers" })
+
+    -- Terminal
+    vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 end
 
 local function set_autocmds()
