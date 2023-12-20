@@ -107,12 +107,13 @@ local function setup_plugins()
                     light = "latte",
                     dark = "mocha",
                 },
-                transparent_background = false,
-                dim_inactive = {
-                    enabled = true,
-                    shade = "dark",
-                    percentage = 0.1,
-                },
+                -- transparent_background = false,
+                transparent_background = true,
+                -- dim_inactive = {
+                --     enabled = true,
+                --     shade = "dark",
+                --     percentage = 0.1,
+                -- },
                 styles = {
                     comments = { "italic" },
                     conditionals = { "italic" },
@@ -144,12 +145,12 @@ local function setup_plugins()
                         },
                     },
                 },
-                color_overrides = {
-                    mocha = {
-                        base = "#161622",
-                        mantle = "#191926",
-                    },
-                }
+                -- color_overrides = {
+                --     mocha = {
+                --         base = "#161622",
+                --         mantle = "#191926",
+                --     },
+                -- }
             }
         },
         {
@@ -421,7 +422,7 @@ end
 
 local function set_options()
     vim.opt.guicursor = ""
-    vim.opt.colorcolumn = "80"
+    -- vim.opt.colorcolumn = "80"
     vim.opt.number = true -- show line numbers
     vim.opt.relativenumber = true -- show relative line numbers
     vim.opt.tabstop = 4 -- number of spaces that a <tab> in the file counts for
@@ -475,9 +476,6 @@ local function set_keymaps()
     vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
     vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
     vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
-
-    -- Clear buffers
-    vim.keymap.set("n", "<leader>bc", "<cmd>%bd|e#|bd#<cr>", { desc = "Close other buffers" })
 
     -- Terminal
     vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
