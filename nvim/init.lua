@@ -135,6 +135,7 @@ local function setup_plugins()
                     telescope = true,
                     notify = true,
                     mini = true,
+                    fidget = true,
                     native_lsp = {
                         enabled = true,
                         underlines = {
@@ -154,18 +155,29 @@ local function setup_plugins()
             }
         },
         {
+            "j-hui/fidget.nvim",
+            lazy = true,
+            event = { "BufReadPost", "BufNewFile" },
+            opts = {
+                notification = {
+                    override_vim_notify = true,
+                    view = {
+                        stack_upwards = false,
+                    },
+                    window = {
+                        winblend = 0,
+                        align = "top",
+                    },
+                },
+            },
+        },
+        {
             "folke/todo-comments.nvim",
             event = { "BufReadPost", "BufNewFile" },
             config = true,
             keys = {
                 { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
             },
-        },
-        {
-            "rcarriga/nvim-notify",
-            config = function()
-                vim.notify = require("notify")
-            end,
         },
         {
             "nvim-lualine/lualine.nvim",
@@ -293,7 +305,7 @@ local function setup_plugins()
             config = function()
                 vim.keymap.set("n", "<leader>/", function()
                     require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
-                        winblend = 10,
+                        winblend = 0, -- set to 10 when not transparent
                         previewer = false,
                     })
                 end, { desc = "Search in current buffer" })
