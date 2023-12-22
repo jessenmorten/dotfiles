@@ -422,7 +422,7 @@ local function setup_plugins()
                 { 'hrsh7th/cmp-nvim-lua' },
 
                 -- snippets
-                { 'L3MON4D3/LuaSnip' },
+                { 'L3MON4D3/LuaSnip', version = 'v2.*' },
                 { 'rafamadriz/friendly-snippets' },
 
                 -- other
