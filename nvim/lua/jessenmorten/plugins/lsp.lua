@@ -52,6 +52,7 @@ local function set_sign_icons(opts)
 end
 
 local on_attach = function(client, bufnr)
+    vim.notify("Attached " .. client.name, 2)
     local tele = require("telescope.builtin")
     local opts = { buffer = bufnr, remap = false }
 

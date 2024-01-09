@@ -15,13 +15,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("lazy").setup("jessenmorten.plugins", {})
-vim.notify("Loaded plugins")
-
 require("jessenmorten.options")
-vim.notify("Loaded options")
-
 require("jessenmorten.keymaps")
-vim.notify("Loaded keymaps")
-
 require("jessenmorten.auto-commands")
-vim.notify("Loaded auto-commands")
