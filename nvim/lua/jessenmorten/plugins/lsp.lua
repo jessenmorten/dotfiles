@@ -58,7 +58,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 
@@ -78,54 +77,46 @@ local on_attach = function(client, bufnr)
 end
 
 return {
-    {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+        "nvim-telescope/telescope.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
+        "j-hui/fidget.nvim",
         "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end,
-    },
-    {
         "williamboman/mason-lspconfig.nvim",
-        config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = ensure_installed,
-            })
-        end,
     },
-    {
-        "neovim/nvim-lspconfig",
-        dependencies = {
-            "nvim-telescope/telescope.nvim",
-            "nvim-telescope/telescope-ui-select.nvim",
-            "j-hui/fidget.nvim",
-        },
-        config = function()
-            local lsp_config = require("lspconfig")
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    config = function()
+        require("mason").setup()
+        require("mason-lspconfig").setup({
+            ensure_installed = ensure_installed,
+        })
+        local lsp_config = require("lspconfig")
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            vim.diagnostic.config({
-                virtual_text = {
-                    prefix = "●",
-                },
-                float = {
-                    border = "rounded"
-                },
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { remap = false })
+
+        vim.diagnostic.config({
+            virtual_text = {
+                prefix = "●",
+            },
+            float = {
+                border = "rounded"
+            },
+        })
+
+        set_sign_icons({
+            error = "",
+            warn = "",
+            hint = "",
+            info = "",
+        })
+
+        for _, server in ipairs(ensure_installed) do
+            lsp_config[server].setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+                handlers = handlers,
             })
-
-            set_sign_icons({
-                error = "",
-                warn = "",
-                hint = "",
-                info = "",
-            })
-
-            for _, server in ipairs(ensure_installed) do
-                lsp_config[server].setup({
-                    capabilities = capabilities,
-                    on_attach = on_attach,
-                    handlers = handlers,
-                })
-            end
-        end,
-    }
+        end
+    end,
 }
