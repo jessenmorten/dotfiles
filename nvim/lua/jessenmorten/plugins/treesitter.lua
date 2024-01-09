@@ -2,6 +2,8 @@ local ensure_installed = {
     "lua",
     "javascript",
     "typescript",
+    "vim",
+    "vimdoc",
 }
 
 return {
