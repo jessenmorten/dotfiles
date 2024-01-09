@@ -5,6 +5,8 @@ set -e
 echo "Installing NeoVim configuration..."
 rm -rf $USERPROFILE/AppData/Local/nvim
 cp -r ./nvim $USERPROFILE/AppData/Local/nvim
+rm $USERPROFILE/AppData/Local/nvim/lua/jessenmorten/plugins/copilot.lua
+rm $USERPROFILE/AppData/Local/nvim/lua/jessenmorten/plugins/treesitter.lua
 
 # Git
 echo "Installing Git configuration..."
