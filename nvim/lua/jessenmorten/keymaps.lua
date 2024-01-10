@@ -30,7 +30,7 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Tabs
-vim.keymap.set({ "n", "t" }, "<C-b>c", "<cmd>tabnew<cr>", { desc = "Create new tab" })
+vim.keymap.set({ "n", "t" }, "<C-b>c", "zz<C-w>s<C-w>Tzz", { desc = "Create new tab" })
 vim.keymap.set({ "n", "t" }, "<C-b>1", "<cmd>tabnext 1<cr>", { desc = "Go to tab 1" })
 vim.keymap.set({ "n", "t" }, "<C-b>2", "<cmd>tabnext 2<cr>", { desc = "Go to tab 2" })
 vim.keymap.set({ "n", "t" }, "<C-b>3", "<cmd>tabnext 3<cr>", { desc = "Go to tab 3" })
