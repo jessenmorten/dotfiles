@@ -31,8 +31,6 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Tabs
 vim.keymap.set({ "n", "t" }, "<C-b>c", "zz<C-w>s<C-w>Tzz", { desc = "Create new tab" })
-vim.keymap.set({ "n", "t" }, "<C-b>1", "<cmd>tabnext 1<cr>", { desc = "Go to tab 1" })
-vim.keymap.set({ "n", "t" }, "<C-b>2", "<cmd>tabnext 2<cr>", { desc = "Go to tab 2" })
-vim.keymap.set({ "n", "t" }, "<C-b>3", "<cmd>tabnext 3<cr>", { desc = "Go to tab 3" })
-vim.keymap.set({ "n", "t" }, "<C-b>4", "<cmd>tabnext 4<cr>", { desc = "Go to tab 4" })
-vim.keymap.set({ "n", "t" }, "<C-b>5", "<cmd>tabnext 5<cr>", { desc = "Go to tab 5" })
+for i = 1, 9, 1 do
+    vim.keymap.set({ "n", "t" }, "<C-b>" .. i, "<cmd>tabnext " .. i .. "<cr>", { desc = "Go to tab " .. i })
+end
