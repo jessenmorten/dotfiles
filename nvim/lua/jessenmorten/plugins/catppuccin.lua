@@ -8,6 +8,11 @@ return {
     config = function()
         local opts = {
             flavour = "mocha",
+            custom_highlights = function(colors)
+                return {
+                    FloatBorder = { fg = colors.yellow },
+                }
+            end,
             background = {
                 light = "latte",
                 dark = "mocha",
