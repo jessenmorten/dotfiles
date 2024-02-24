@@ -1,11 +1,11 @@
 return {
     {
         "hrsh7th/cmp-nvim-lsp",
-        event = { "BufReadPost" },
+        lazy = true,
     },
     {
         "L3MON4D3/LuaSnip",
-        event = { "BufReadPost" },
+        lazy = true,
         dependencies = {
             "saadparwaiz1/cmp_luasnip",
             "rafamadriz/friendly-snippets",
