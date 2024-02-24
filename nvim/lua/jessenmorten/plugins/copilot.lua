@@ -7,6 +7,7 @@ return {
         vim.g.copilot_filetypes = {
             markdown = true,
             yaml = true,
+            gitcommit = true,
         }
 
         -- fix "tab claimed by another plugin" issue
