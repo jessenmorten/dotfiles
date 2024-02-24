@@ -2,7 +2,7 @@ return {
     "github/copilot.vim",
     lazy = true,
     cmd = "Copilot",
-    event = { "BufReadPost" },
+    event = { "BufWinEnter" },
     config = function()
         vim.g.copilot_filetypes = {
             markdown = true,
