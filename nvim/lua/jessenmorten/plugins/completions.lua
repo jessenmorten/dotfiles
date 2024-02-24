@@ -1,9 +1,11 @@
 return {
     {
         "hrsh7th/cmp-nvim-lsp",
+        event = { "BufReadPost" },
     },
     {
         "L3MON4D3/LuaSnip",
+        event = { "BufReadPost" },
         dependencies = {
             "saadparwaiz1/cmp_luasnip",
             "rafamadriz/friendly-snippets",
@@ -12,6 +14,7 @@ return {
     },
     {
         "hrsh7th/nvim-cmp",
+        event = { "BufReadPost" },
         config = function()
             -- Set up nvim-cmp.
             local cmp = require("cmp")

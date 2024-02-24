@@ -2,6 +2,7 @@ local ensure_installed = {
     "lua_ls",
     "tsserver",
     "gopls",
+    "csharp_ls",
 }
 
 local handlers = {
@@ -86,6 +87,7 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
     },
+    event = { "BufReadPost" },
     config = function()
         require("mason").setup()
         require("mason-lspconfig").setup({
