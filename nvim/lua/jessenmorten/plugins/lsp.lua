@@ -16,16 +16,16 @@ local function set_sign_icons(opts)
     if vim.diagnostic.count then
         local ds = vim.diagnostic.severity
         local levels = {
-            [ds.ERROR] = 'error',
-            [ds.WARN] = 'warn',
-            [ds.INFO] = 'info',
-            [ds.HINT] = 'hint'
+            [ds.ERROR] = "error",
+            [ds.WARN] = "warn",
+            [ds.INFO] = "info",
+            [ds.HINT] = "hint"
         }
 
         local text = {}
 
         for i, l in pairs(levels) do
-            if type(opts[l]) == 'string' then
+            if type(opts[l]) == "string" then
                 text[i] = opts[l]
             end
         end
@@ -42,14 +42,14 @@ local function set_sign_icons(opts)
         vim.fn.sign_define(args.hl, {
             texthl = args.hl,
             text = opts[args.name],
-            numhl = ''
+            numhl = ""
         })
     end
 
-    sign({ name = 'error', hl = 'DiagnosticSignError' })
-    sign({ name = 'warn', hl = 'DiagnosticSignWarn' })
-    sign({ name = 'hint', hl = 'DiagnosticSignHint' })
-    sign({ name = 'info', hl = 'DiagnosticSignInfo' })
+    sign({ name = "error", hl = "DiagnosticSignError" })
+    sign({ name = "warn", hl = "DiagnosticSignWarn" })
+    sign({ name = "hint", hl = "DiagnosticSignHint" })
+    sign({ name = "info", hl = "DiagnosticSignInfo" })
 end
 
 local on_attach = function(client, bufnr)
@@ -67,15 +67,15 @@ local on_attach = function(client, bufnr)
 
     vim.keymap.set("n", "gi", tele.lsp_implementations, opts)
     vim.keymap.set("n", "<leader>gr", tele.lsp_references, opts)
-    vim.keymap.set('n', '<leader>ds', tele.lsp_document_symbols, opts)
-    vim.keymap.set('n', '<leader>ws', tele.lsp_dynamic_workspace_symbols, opts)
+    vim.keymap.set("n", "<leader>ds", tele.lsp_document_symbols, opts)
+    vim.keymap.set("n", "<leader>ws", tele.lsp_dynamic_workspace_symbols, opts)
     vim.keymap.set("n", "<leader>gt", tele.lsp_type_definitions, opts)
 
-    -- create ':Format' command
-    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+    -- create ":Format" command
+    vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
         vim.lsp.buf.format()
         vim.api.nvim_command("w")
-    end, { desc = 'Format current buffer with LSP' })
+    end, { desc = "Format current buffer with LSP" })
 end
 
 return {
