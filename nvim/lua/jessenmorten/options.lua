@@ -22,3 +22,7 @@ vim.opt.showmode = false
 vim.opt.sidescrolloff = 8
 vim.opt.scrolloff = 8
 vim.opt.wildmode = "longest:full,full"
+
+if vim.fn.has("win32") == 1 then
+    vim.opt.shell = "bash"
+end

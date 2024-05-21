@@ -16,3 +16,14 @@ vim.api.nvim_create_autocmd("TermOpen", {
     group = term_group,
     pattern = "*",
 })
+
+local term_enter_group = vim.api.nvim_create_augroup("TermEnter", { clear = true })
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        if vim.bo.buftype == "terminal" then
+            vim.cmd("startinsert")
+        end
+    end,
+    group = term_enter_group,
+    pattern = "*",
+})

@@ -1,0 +1,6 @@
+vim.api.nvim_create_user_command("T", function()
+    vim.cmd("split")
+    vim.cmd("wincmd j")
+    vim.cmd("resize 15")
+    vim.cmd("term")
+end, { nargs = 0 })

@@ -12,6 +12,11 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = tr
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
+vim.keymap.set("t", "<C-h>", "<Esc><C-w>h", { desc = "Go to left window", remap = true })
+vim.keymap.set("t", "<C-j>", "<Esc><C-w>j", { desc = "Go to lower window", remap = true })
+vim.keymap.set("t", "<C-k>", "<Esc><C-w>k", { desc = "Go to upper window", remap = true })
+vim.keymap.set("t", "<C-l>", "<Esc><C-w>l", { desc = "Go to right window", remap = true })
+
 -- Resize window using <ctrl> arrow keys
 vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
