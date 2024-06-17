@@ -9,8 +9,8 @@ rm $USERPROFILE/AppData/Local/nvim/lua/jessenmorten/plugins/treesitter.lua
 
 # Git
 echo "Installing Git configuration..."
-rm -rf $HOME/.config/git
-cp -r ./git $HOME/.config/git
+rm -rf ~/.config/git
+cp -r ./git ~/.config/git
 
 # Install complete
 echo "Dotfiles installed successfully!"
