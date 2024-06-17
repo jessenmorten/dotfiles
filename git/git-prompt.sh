@@ -1,8 +1,19 @@
-PROMPT_DIRTRIM=3                # shorten deep paths in the prompt
-PS1='\[\033]0;\W\007\]'         # set window title
-PS1="$PS1"'\n'                  # new line
-PS1="$PS1"'\[\033[30;46m\] \w ' # working directory
+# options
+PROMPT_DIRTRIM=1
 
+# color codes
+BLUE="\[\033[0;34m\]"
+GREEN="\[\033[0;32m\]"
+CYAN="\[\033[0;36m\]"
+RED="\[\033[0;31m\]"
+YELLOW="\[\033[0;33m\]"
+PURPLE="\[\033[0;35m\]"
+WHITE="\[\033[0;37m\]"
+PINK="\[\033[1;31m\]"
+BOLD="\[\e[1m\]"
+RESET="\[\033[0m\]"
+
+# git completion
 if test -z "$WINELOADERNOEXEC"
 then
     GIT_EXEC_PATH="$(git --exec-path 2>/dev/null)"
@@ -16,9 +27,17 @@ then
     fi
 fi
 
-PS1="$PS1"'\[\033[0m\]'         # reset color
-PS1="$PS1"'\n'                  # new line
-PS1="$PS1"'$ '                  # prompt: always $
+# prompt
+DECORATE=0
+if [ "$DECORATE" -eq 1 ]; then
+    GIT_PS1_SHOWCOLORHINTS=true
+    GIT_PS1_SHOWDIRTYSTATE=true
+    GIT_PS1_SHOWSTASHSTATE=true
+    GIT_PS1_SHOWUNTRACKEDFILES=true
+    export PS1="${GREEN}${BOLD} -> ${CYAN}\W\$(__git_ps1 ' (%s)')${RESET} "
+else
+    export PS1="${GREEN}${BOLD} > ${CYAN}\W${RESET} "
+fi
 
 # aliases
 alias ls='ls -F --color=auto --show-control-chars'
