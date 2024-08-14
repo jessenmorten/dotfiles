@@ -4,7 +4,9 @@ PROMPT_DIRTRIM=1
 # color codes
 BLUE="\[\033[0;34m\]"
 GREEN="\[\033[0;32m\]"
+BRIGHT_GREEN="\[\033[1;32m\]"
 CYAN="\[\033[0;36m\]"
+BRIGHT_CYAN="\[\033[1;36m\]"
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
 PURPLE="\[\033[0;35m\]"
@@ -27,6 +29,10 @@ then
     fi
 fi
 
+# kubectl completion
+source <(kubectl completion bash)
+complete -o default -F __start_kubectl k
+
 # prompt
 DECORATE=0
 if [ "$DECORATE" -eq 1 ]; then
@@ -34,10 +40,11 @@ if [ "$DECORATE" -eq 1 ]; then
     GIT_PS1_SHOWDIRTYSTATE=true
     GIT_PS1_SHOWSTASHSTATE=true
     GIT_PS1_SHOWUNTRACKEDFILES=true
-    export PS1="${GREEN}${BOLD} -> ${CYAN}\W\$(__git_ps1 ' (%s)')${RESET} "
+    export PS1="${BRIGHT_GREEN}${BOLD}➜  ${BRIGHT_CYAN}\W\$(__git_ps1 ' (%s)')${RESET} "
 else
-    export PS1="${GREEN}${BOLD} > ${CYAN}\W${RESET} "
+    export PS1="${BRIGHT_GREEN}${BOLD}➜  ${BRIGHT_CYAN}\W${RESET} "
 fi
 
 # aliases
 alias ls='ls -F --color=auto --show-control-chars'
+alias k='kubectl'
