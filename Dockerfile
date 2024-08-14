@@ -11,6 +11,7 @@ RUN apt update && \
     curl \
     htop \
     tmux \
+    nmap \
     software-properties-common \
     unzip \
     locales \
