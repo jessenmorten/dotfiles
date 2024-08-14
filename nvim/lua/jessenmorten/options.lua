@@ -16,12 +16,13 @@ vim.opt.smartcase = true
 vim.opt.updatetime = 250
 vim.opt.signcolumn = "yes"
 vim.opt.laststatus = 2
-vim.opt.completeopt = "menuone,noselect"
+vim.opt.completeopt = "menu,menuone"
 vim.opt.termguicolors = true
 vim.opt.showmode = false
 vim.opt.sidescrolloff = 8
 vim.opt.scrolloff = 8
 vim.opt.wildmode = "longest:full,full"
+vim.cmd.colorscheme("melange")
 
 if vim.fn.has("win32") == 1 then
     vim.opt.shell = "bash"
