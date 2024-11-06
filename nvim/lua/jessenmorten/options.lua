@@ -21,7 +21,6 @@ vim.opt.termguicolors = true
 vim.opt.showmode = false
 vim.opt.sidescrolloff = 8
 vim.opt.scrolloff = 8
-vim.opt.clipboard = "unnamedplus"
 vim.opt.wildmode = "longest:full,full"
 vim.cmd.colorscheme("catppuccin-mocha")
 
