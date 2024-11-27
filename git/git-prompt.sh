@@ -49,4 +49,36 @@ fi
 alias ls='ls -F --color=auto --show-control-chars'
 alias k='kubectl'
 alias gs='find . -name .git -type d -prune -execdir pwd \; -execdir git status \;'
-alias new='echo -e "#!/bin/bash\nset -e\nlog () {\n    timestamp=\$(date +\"%Y-%m-%d %H:%M:%S.%3N\")\n    echo -e \"\\033[90m\$timestamp\\033[0m ➜  \$1\"\n}\n" | nvim -c "set ft=sh"'
+
+# functions
+new_script() {
+    if [ -z "$1" ]; then
+        echo "Usage: new_script <script_name>"
+        return
+    fi
+
+    if [ -f $1 ]; then
+        echo "File already exists"
+        return
+    fi
+
+    cat <<EOF > $1
+#!/bin/bash
+
+set -e
+
+log () {
+    timestamp=\$(date +"%Y-%m-%d %H:%M:%S.%3N")
+    echo -e "\033[90m\$timestamp\033[0m ➜  \$1"
+}
+
+error () {
+    timestamp=\$(date +"%Y-%m-%d %H:%M:%S.%3N")
+    echo -e "\033[90m\$timestamp\033[0m \033[91m✗ \$1\033[0m"
+    exit 1
+}
+
+EOF
+
+    nvim $1
+}
