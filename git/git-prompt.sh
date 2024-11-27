@@ -78,6 +78,11 @@ error () {
     exit 1
 }
 
+prompt () {
+    timestamp=\$(date +"%Y-%m-%d %H:%M:%S.%3N")
+    echo -ne "\033[90m\$timestamp\033[0m \033[93m➜  \$1\033[0m "
+}
+
 EOF
 
     nvim $1
