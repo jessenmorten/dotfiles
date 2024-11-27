@@ -1,22 +1,30 @@
-# Exit script if any statement returns a non-true return value
+#!/bin/bash
 set -e
 
-# NeoVim
-echo "Installing NeoVim configuration..."
+log () {
+    timestamp=$(date +"%Y-%m-%d %H:%M:%S.%3N")
+    echo -e "\033[90m$timestamp\033[0m ➜  $1"
+}
+
+log "Removing existing NeoVim configuration..."
 rm -rf ~/.config/nvim
+
+log "Copying NeoVim configuration..."
 cp -r ./nvim ~/.config/nvim
 
-# Tmux
-echo "Installing Tmux configuration..."
-rm -rf ~/.tmux/plugins/tpm
+log "Removing existing Tmux configuration..."
 rm -rf ~/.tmux
+
+log "Cloning Tmux Plugin Manager..."
 git clone https://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
+
+log "Copying Tmux configuration..."
 cp ./tmux/.tmux.conf ~/.tmux.conf
 
-# Zsh
-echo "Installing Zsh configuration..."
+log "Removing existing Zsh configuration..."
 rm ~/.zshrc
+
+log "Copying Zsh configuration..."
 cp ./zsh/.zshrc ~/.zshrc
 
-# Install complete
-echo "Dotfiles installed successfully!"
+log "Dotfiles installed successfully!"

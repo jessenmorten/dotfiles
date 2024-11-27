@@ -48,3 +48,5 @@ fi
 # aliases
 alias ls='ls -F --color=auto --show-control-chars'
 alias k='kubectl'
+alias gs='find . -name .git -type d -prune -execdir pwd \; -execdir git status \;'
+alias new='echo -e "#!/bin/bash\nset -e\nlog () {\n    timestamp=\$(date +\"%Y-%m-%d %H:%M:%S.%3N\")\n    echo -e \"\\033[90m\$timestamp\\033[0m ➜  \$1\"\n}\n" | nvim -c "set ft=sh"'

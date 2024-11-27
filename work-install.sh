@@ -1,16 +1,24 @@
-# Exit script if any statement returns a non-true return value
+#!/bin/bash
 set -e
 
-# NeoVim
-echo "Installing NeoVim configuration..."
-rm -rf $USERPROFILE/AppData/Local/nvim
+log () {
+    timestamp=$(date +"%Y-%m-%d %H:%M:%S.%3N")
+    echo -e "\033[90m$timestamp\033[0m ➜  $1"
+}
+
+log "Removing existing NeoVim configuration..."
+rm -r $USERPROFILE/AppData/Local/nvim
+
+log "Copying NeoVim configuration..."
 cp -r ./nvim $USERPROFILE/AppData/Local/nvim
+
+log "Removing buggy treesitter configuration..."
 rm $USERPROFILE/AppData/Local/nvim/lua/jessenmorten/plugins/treesitter.lua
 
-# Git
-echo "Installing Git configuration..."
-rm -rf ~/.config/git
+log "Removing existing Git configuration..."
+rm -r ~/.config/git
+
+log "Copying Git configuration..."
 cp -r ./git ~/.config/git
 
-# Install complete
-echo "Dotfiles installed successfully!"
+log "Dotfiles installed successfully!"
