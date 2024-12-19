@@ -15,16 +15,4 @@ cp -r ./nvim ~/.config/nvim
 log "Removing existing Tmux configuration..."
 rm -rf ~/.tmux
 
-log "Cloning Tmux Plugin Manager..."
-git clone https://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
-
-log "Copying Tmux configuration..."
-cp ./tmux/.tmux.conf ~/.tmux.conf
-
-log "Removing existing Zsh configuration..."
-rm ~/.zshrc
-
-log "Copying Zsh configuration..."
-cp ./zsh/.zshrc ~/.zshrc
-
 log "Dotfiles installed successfully!"

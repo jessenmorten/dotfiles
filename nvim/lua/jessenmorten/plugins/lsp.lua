@@ -82,7 +82,9 @@ return {
                     })
                 end
 
-                vim.notify(client.name .. " attached to buffer")
+                if client then
+                    vim.notify(client.name .. " attached to buffer")
+                end
             end,
         })
 
