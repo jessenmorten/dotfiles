@@ -12,9 +12,6 @@ rm -r $USERPROFILE/AppData/Local/nvim
 log "Copying NeoVim configuration..."
 cp -r ./nvim $USERPROFILE/AppData/Local/nvim
 
-log "Removing buggy treesitter configuration..."
-rm $USERPROFILE/AppData/Local/nvim/lua/jessenmorten/plugins/treesitter.lua
-
 log "Removing existing Git configuration..."
 rm -r ~/.config/git
 
