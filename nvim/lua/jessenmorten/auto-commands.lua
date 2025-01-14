@@ -27,3 +27,12 @@ vim.api.nvim_create_autocmd("BufEnter", {
     group = term_enter_group,
     pattern = "*",
 })
+
+local term_close_group = vim.api.nvim_create_augroup("TermClose", { clear = true })
+vim.api.nvim_create_autocmd("TermClose", {
+    callback = function()
+        vim.api.nvim_buf_delete(0, {force = true})
+    end,
+    group = term_close_group,
+    pattern = "*",
+})
