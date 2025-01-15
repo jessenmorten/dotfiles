@@ -1,4 +1,4 @@
-local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+local highlight_group = vim.api.nvim_create_augroup("CustomYankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank()
@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     pattern = "*",
 })
 
-local term_group = vim.api.nvim_create_augroup("TermOpen", { clear = true })
+local term_group = vim.api.nvim_create_augroup("CustomTermOpen", { clear = true })
 vim.api.nvim_create_autocmd("TermOpen", {
     callback = function()
         vim.cmd("setlocal nonumber norelativenumber signcolumn=no")
@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
     pattern = "*",
 })
 
-local term_enter_group = vim.api.nvim_create_augroup("TermEnter", { clear = true })
+local term_enter_group = vim.api.nvim_create_augroup("CustomTermEnter", { clear = true })
 vim.api.nvim_create_autocmd("BufEnter", {
     callback = function()
         if vim.bo.buftype == "terminal" then
@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
     pattern = "*",
 })
 
-local term_close_group = vim.api.nvim_create_augroup("TermClose", { clear = true })
+local term_close_group = vim.api.nvim_create_augroup("CustomTermClose", { clear = true })
 vim.api.nvim_create_autocmd("TermClose", {
     callback = function()
         vim.api.nvim_buf_delete(0, {force = true})
