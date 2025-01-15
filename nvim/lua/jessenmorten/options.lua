@@ -10,7 +10,7 @@ vim.opt.wrap = false
 vim.opt.sidescroll = 5
 vim.opt.list = true
 vim.opt.listchars = "space:·,tab:»·,trail:·,nbsp:·,extends:»,precedes:«"
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.updatetime = 250
@@ -23,7 +23,7 @@ vim.opt.sidescrolloff = 8
 vim.opt.scrolloff = 8
 vim.opt.wildmode = "longest:full,full"
 vim.opt.shadafile = "NONE"
-vim.cmd.colorscheme("fluoromachine")
+vim.cmd.colorscheme("gruvbox-material")
 
 if vim.fn.has("win32") == 1 then
     vim.opt.shell = "bash"
