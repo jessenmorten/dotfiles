@@ -20,7 +20,48 @@ vim.api.nvim_create_user_command("TT", function()
 end, { nargs = 0 })
 
 vim.api.nvim_create_user_command("Note", function()
-    vim.cmd("vsplit")
-    vim.cmd("wincmd l")
-    vim.cmd("e ~/nvim-note.md")
+    local bufname = "Floating Note"
+    ShowFloat(bufname)
+    vim.cmd("edit " .. "~/nvim-note.md")
 end, { nargs = 0 })
+
+vim.api.nvim_create_user_command("TF", function()
+    local bufname = "Floating Terminal"
+    ShowFloat(bufname)
+    vim.cmd("term")
+end, { nargs = 0 })
+
+function ShowFloat(bufname)
+    local width = vim.api.nvim_get_option_value("columns", {})
+    local height = vim.api.nvim_get_option_value("lines", {})
+    local win_width = math.floor(width * 0.8)
+    local win_height = math.floor(height * 0.8)
+    local row = math.floor((height - win_height) / 2)
+    local col = math.floor((width - win_width) / 2)
+    local opts = {
+        relative = "editor",
+        width = win_width,
+        height = win_height,
+        row = row,
+        col = col,
+        style = "minimal",
+        border = "rounded",
+        title = bufname,
+        title_pos = "center",
+    }
+
+    -- Check if the buffer already exists
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_get_name(buf) == vim.fn.expand(bufname) then
+            -- If buffer exists, open it in a floating window
+            return vim.api.nvim_open_win(buf, true, opts)
+        end
+    end
+
+    -- Create a new buffer if it doesn't exist
+    local buf = vim.api.nvim_create_buf(false, true)
+    local _ = vim.api.nvim_open_win(buf, true, opts)
+
+    -- Prevent buffer from being deleted when hidden
+    vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = buf })
+end
