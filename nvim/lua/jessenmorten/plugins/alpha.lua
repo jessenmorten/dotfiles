@@ -27,7 +27,7 @@ NNNNNNNN         NNNNNNN    eeeeeeeeeeeeee     ooooooooooo            vvv       
         dashboard.section.header.val = vim.split(logo, "\n")
         dashboard.section.buttons.val = {
             -- Note
-            dashboard.button("n", "📝 " .. " Note", ":e ~/nvim-note.md<CR>"),
+            dashboard.button("n", "📝 " .. " Note", ":Note<CR>"),
 
             -- Lazy
             dashboard.button("l", "📦 " .. " Lazy", ":Lazy<CR>"),
