@@ -48,7 +48,6 @@ fi
 # aliases
 alias ls='ls -F --color=auto --show-control-chars'
 alias k='kubectl'
-alias gs='find . -name .git -type d -prune -execdir pwd \; -execdir git status \;'
 
 # functions
 new_script() {

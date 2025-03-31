@@ -7,19 +7,33 @@ return {
     opts = function()
         local dashboard = require("alpha.themes.dashboard")
         local logo = [[
-      ::::    ::: :::::::::: ::::::::  :::     ::: :::::::::::   :::   ::: 
-     :+:+:   :+: :+:       :+:    :+: :+:     :+:     :+:      :+:+: :+:+: 
-    :+:+:+  +:+ +:+       +:+    +:+ +:+     +:+     +:+     +:+ +:+:+ +:+ 
-   +#+ +:+ +#+ +#++:++#  +#+    +:+ +#+     +:+     +#+     +#+  +:+  +#+  
-  +#+  +#+#+# +#+       +#+    +#+  +#+   +#+      +#+     +#+       +#+   
- #+#   #+#+# #+#       #+#    #+#   #+#+#+#       #+#     #+#       #+#    
-###    #### ########## ########      ###     ########### ###       ###
+NNNNNNNN        NNNNNNNN                                                              iiii                          
+N:::::::N       N::::::N                                                             i::::i                         
+N::::::::N      N::::::N                                                              iiii                          
+N:::::::::N     N::::::N                                                                                            
+N::::::::::N    N::::::N    eeeeeeeeeeee       ooooooooooo vvvvvvv           vvvvvvviiiiiii    mmmmmmm    mmmmmmm   
+N:::::::::::N   N::::::N  ee::::::::::::ee   oo:::::::::::oov:::::v         v:::::v i:::::i  mm:::::::m  m:::::::mm 
+N:::::::N::::N  N::::::N e::::::eeeee:::::eeo:::::::::::::::ov:::::v       v:::::v   i::::i m::::::::::mm::::::::::m
+N::::::N N::::N N::::::Ne::::::e     e:::::eo:::::ooooo:::::o v:::::v     v:::::v    i::::i m::::::::::::::::::::::m
+N::::::N  N::::N:::::::Ne:::::::eeeee::::::eo::::o     o::::o  v:::::v   v:::::v     i::::i m:::::mmm::::::mmm:::::m
+N::::::N   N:::::::::::Ne:::::::::::::::::e o::::o     o::::o   v:::::v v:::::v      i::::i m::::m   m::::m   m::::m
+N::::::N    N::::::::::Ne::::::eeeeeeeeeee  o::::o     o::::o    v:::::v:::::v       i::::i m::::m   m::::m   m::::m
+N::::::N     N:::::::::Ne:::::::e           o::::o     o::::o     v:::::::::v        i::::i m::::m   m::::m   m::::m
+N::::::N      N::::::::Ne::::::::e          o:::::ooooo:::::o      v:::::::v        i::::::im::::m   m::::m   m::::m
+N::::::N       N:::::::N e::::::::eeeeeeee  o:::::::::::::::o       v:::::v         i::::::im::::m   m::::m   m::::m
+N::::::N        N::::::N  ee:::::::::::::e   oo:::::::::::oo         v:::v          i::::::im::::m   m::::m   m::::m
+NNNNNNNN         NNNNNNN    eeeeeeeeeeeeee     ooooooooooo            vvv           iiiiiiiimmmmmm   mmmmmm   mmmmmm
 ]]
-
         dashboard.section.header.val = vim.split(logo, "\n")
         dashboard.section.buttons.val = {
-            dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
-            dashboard.button("q", " " .. " Quit", ":qa<CR>"),
+            -- Note
+            dashboard.button("n", "📝 " .. " Note", ":e ~/nvim-note.md<CR>"),
+
+            -- Lazy
+            dashboard.button("l", "📦 " .. " Lazy", ":Lazy<CR>"),
+
+            -- Quit
+            dashboard.button("q", "❌ " .. " Quit", ":q<CR>"),
         }
         for _, button in ipairs(dashboard.section.buttons.val) do
             button.opts.hl = "AlphaButtons"

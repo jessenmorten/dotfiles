@@ -42,3 +42,6 @@ for i = 1, 9, 1 do
     vim.keymap.set("n", "<C-b>" .. i, "<cmd>tabnext " .. i .. "<cr>", { desc = "Go to tab " .. i })
     vim.keymap.set("t", "<C-b>" .. i, "<cmd>tabnext " .. i .. "<cr>", { desc = "Go to tab " .. i })
 end
+
+-- On ctrl + s, run the :Format command
+vim.keymap.set("n", "<C-s>", "<cmd>Format<cr>", { desc = "Format" })
