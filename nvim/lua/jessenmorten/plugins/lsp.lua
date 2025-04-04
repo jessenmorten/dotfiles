@@ -1,5 +1,6 @@
 local servers = {
     csharp_ls = {},
+    eslint = {},
     gopls = {},
     rust_analyzer = {},
     ts_ls = {},
