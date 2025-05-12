@@ -65,3 +65,29 @@ function ShowFloat(bufname)
     -- Prevent buffer from being deleted when hidden
     vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = buf })
 end
+
+vim.api.nvim_create_user_command("S", function()
+    local swap_map = {
+        -- Boolean
+        ["true"] = "false",
+        ["false"] = "true",
+        ["True"] = "False",
+        ["False"] = "True",
+        ["TRUE"] = "FALSE",
+        ["FALSE"] = "TRUE",
+
+        -- Emoij
+        ["✅"] = "❌",
+        ["❌"] = "✅",
+    }
+
+    local current_word = vim.fn.expand("<cword>")
+    local replacement = swap_map[current_word]
+
+    if replacement then
+        vim.cmd("normal! ciw" .. replacement)
+        vim.notify("Replaced: " .. current_word .. " with " .. replacement)
+    else
+        vim.notify("No replacement found for: " .. current_word, vim.log.levels.WARN)
+    end
+end, { nargs = 0 })
