@@ -118,6 +118,7 @@ return {
         }
 
         require("mason-lspconfig").setup({
+            automatic_enable = true,
             handlers = {
                 function(server_name)
                     local server = servers[server_name] or {}
