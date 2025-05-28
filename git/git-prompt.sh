@@ -48,6 +48,7 @@ fi
 # aliases
 alias ls='ls -F --color=auto --show-control-chars'
 alias k='kubectl'
+alias gs='git status'
 
 # functions
 new_script() {
