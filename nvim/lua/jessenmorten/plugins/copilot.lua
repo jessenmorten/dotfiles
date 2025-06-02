@@ -1,18 +1,24 @@
 return {
     {
-        "github/copilot.vim",
-        lazy = true,
+        "zbirenbaum/copilot.lua",
         cmd = "Copilot",
-        event = { "BufWinEnter" },
+        event = "InsertEnter",
         config = function()
-            vim.g.copilot_filetypes = {
-                markdown = true,
-                yaml = true,
-                gitcommit = true,
-            }
-
-            -- fix "tab claimed by another plugin" issue
-            vim.g.copilot_assume_mapped = true
+            require("copilot").setup({
+                suggestion = {
+                    enabled = false,
+                    auto_trigger = false,
+                },
+                panel = {
+                    enabled = false,
+                },
+            })
+        end,
+    },
+    {
+        "zbirenbaum/copilot-cmp",
+        config = function ()
+            require("copilot_cmp").setup()
         end
     },
     {
