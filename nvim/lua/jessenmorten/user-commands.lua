@@ -19,12 +19,6 @@ vim.api.nvim_create_user_command("TT", function()
     vim.cmd("term")
 end, { nargs = 0 })
 
-vim.api.nvim_create_user_command("Note", function()
-    local bufname = "Floating Note"
-    ShowFloat(bufname)
-    vim.cmd("edit " .. "~/nvim-note.md")
-end, { nargs = 0 })
-
 vim.api.nvim_create_user_command("TF", function()
     local bufname = "Floating Terminal"
     ShowFloat(bufname)

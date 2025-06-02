@@ -25,24 +25,28 @@ N::::::N        N::::::N  ee:::::::::::::e   oo:::::::::::oo         v:::v      
 NNNNNNNN         NNNNNNN    eeeeeeeeeeeeee     ooooooooooo            vvv           iiiiiiiimmmmmm   mmmmmm   mmmmmm
 ]]
         dashboard.section.header.val = vim.split(logo, "\n")
+
         dashboard.section.buttons.val = {
-            -- Note
-            dashboard.button("n", "📝 " .. " Note", ":Note<CR>"),
-
-            -- Lazy
-            dashboard.button("l", "📦 " .. " Lazy", ":Lazy<CR>"),
-
-            -- Quit
-            dashboard.button("q", "❌ " .. " Quit", ":q<CR>"),
+            dashboard.button("f", "🔍 Find Files", ":Telescope find_files<CR>"),
+            dashboard.button("o", "📂 Recent Files", ":Telescope oldfiles<CR>"),
+            dashboard.button("r", "⏪ Resume Search", ":Telescope resume<CR>"),
+            dashboard.button("l", "📦 Lazy", ":Lazy<CR>"),
+            dashboard.button("q", "❌ Quit", ":q<CR>"),
         }
+
         for _, button in ipairs(dashboard.section.buttons.val) do
             button.opts.hl = "AlphaButtons"
             button.opts.hl_shortcut = "AlphaShortcut"
         end
+
         dashboard.section.header.opts.hl = "AlphaHeader"
         dashboard.section.buttons.opts.hl = "AlphaButtons"
         dashboard.section.footer.opts.hl = "AlphaFooter"
         dashboard.opts.layout[1].val = 8
+
+        -- default footer
+        dashboard.section.footer.val = "🎉 Welcome back to Neovim!"
+
         return dashboard
     end,
     config = function(_, dashboard)
@@ -53,9 +57,10 @@ NNNNNNNN         NNNNNNN    eeeeeeeeeeeeee     ooooooooooo            vvv       
             callback = function()
                 local stats = require("lazy").stats()
                 local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-                dashboard.section.footer.val = "⚡ Plugins loaded " .. stats.count .. " in " .. ms .. "ms"
+                dashboard.section.footer.val = "🏁 " .. stats.count .. " plugins loaded in " .. ms .. "ms"
                 pcall(vim.cmd.AlphaRedraw)
             end,
         })
     end,
 }
+
