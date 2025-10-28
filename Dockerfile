@@ -10,7 +10,6 @@ RUN apt update && \
     git \
     curl \
     htop \
-    tmux \
     nmap \
     software-properties-common \
     unzip \
@@ -34,12 +33,8 @@ RUN add-apt-repository ppa:neovim-ppa/unstable && \
     apt update && \
     apt install -y neovim
 
-# Install tmux plugin manager
-RUN git clone https://github.com/tmux-plugins/tpm.git /root/.tmux/plugins/tpm
-
 # Copy dotfiles
 COPY ./nvim/ /root/.config/nvim/
-COPY ./tmux/.tmux.conf /root/.tmux/.tmux.conf
 COPY . /root/code/dotfiles
 
 # Go

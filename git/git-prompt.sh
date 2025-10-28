@@ -49,6 +49,7 @@ fi
 alias ls='ls -F --color=auto --show-control-chars'
 alias k='kubectl'
 alias gs='git status'
+alias grep='grep --color=auto'
 
 # functions
 new_script() {

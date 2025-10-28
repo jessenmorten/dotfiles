@@ -12,7 +12,4 @@ rm -rf ~/.config/nvim
 log "Copying NeoVim configuration..."
 cp -r ./nvim ~/.config/nvim
 
-log "Removing existing Tmux configuration..."
-rm -rf ~/.tmux
-
-log "Dotfiles installed successfully!"
+log "Dotfiles installed!"
