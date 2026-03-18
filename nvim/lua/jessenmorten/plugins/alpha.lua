@@ -7,29 +7,35 @@ return {
     opts = function()
         local dashboard = require("alpha.themes.dashboard")
         local logo = [[
-NNNNNNNN        NNNNNNNN                                                              iiii                          
-N:::::::N       N::::::N                                                             i::::i                         
-N::::::::N      N::::::N                                                              iiii                          
-N:::::::::N     N::::::N                                                                                            
-N::::::::::N    N::::::N    eeeeeeeeeeee       ooooooooooo vvvvvvv           vvvvvvviiiiiii    mmmmmmm    mmmmmmm   
-N:::::::::::N   N::::::N  ee::::::::::::ee   oo:::::::::::oov:::::v         v:::::v i:::::i  mm:::::::m  m:::::::mm 
-N:::::::N::::N  N::::::N e::::::eeeee:::::eeo:::::::::::::::ov:::::v       v:::::v   i::::i m::::::::::mm::::::::::m
-N::::::N N::::N N::::::Ne::::::e     e:::::eo:::::ooooo:::::o v:::::v     v:::::v    i::::i m::::::::::::::::::::::m
-N::::::N  N::::N:::::::Ne:::::::eeeee::::::eo::::o     o::::o  v:::::v   v:::::v     i::::i m:::::mmm::::::mmm:::::m
-N::::::N   N:::::::::::Ne:::::::::::::::::e o::::o     o::::o   v:::::v v:::::v      i::::i m::::m   m::::m   m::::m
-N::::::N    N::::::::::Ne::::::eeeeeeeeeee  o::::o     o::::o    v:::::v:::::v       i::::i m::::m   m::::m   m::::m
-N::::::N     N:::::::::Ne:::::::e           o::::o     o::::o     v:::::::::v        i::::i m::::m   m::::m   m::::m
-N::::::N      N::::::::Ne::::::::e          o:::::ooooo:::::o      v:::::::v        i::::::im::::m   m::::m   m::::m
-N::::::N       N:::::::N e::::::::eeeeeeee  o:::::::::::::::o       v:::::v         i::::::im::::m   m::::m   m::::m
-N::::::N        N::::::N  ee:::::::::::::e   oo:::::::::::oo         v:::v          i::::::im::::m   m::::m   m::::m
-NNNNNNNN         NNNNNNN    eeeeeeeeeeeeee     ooooooooooo            vvv           iiiiiiiimmmmmm   mmmmmm   mmmmmm
+                        .8
+                      .888
+                    .8888'
+                   .8888'
+                   888'
+                   8'
+      .88888888888. .88888888888.
+   .8888888888888888888888888888888.
+ .8888888888888888888888888888888888.
+.&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%.
+`%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%.
+ `00000000000000000000000000000000000'
+  `000000000000000000000000000000000'
+   `0000000000000000000000000000000'
+     `###########################'
+       `#######################'
+         `#########''########'
+           `""""""'  `"""""'
 ]]
         dashboard.section.header.val = vim.split(logo, "\n")
 
         dashboard.section.buttons.val = {
-            dashboard.button("f", "🔍 Find Files", ":Telescope find_files<CR>"),
-            dashboard.button("o", "📂 Recent Files", ":Telescope oldfiles<CR>"),
-            dashboard.button("r", "⏪ Resume Search", ":Telescope resume<CR>"),
             dashboard.button("l", "📦 Lazy", ":Lazy<CR>"),
             dashboard.button("q", "❌ Quit", ":q<CR>"),
         }
