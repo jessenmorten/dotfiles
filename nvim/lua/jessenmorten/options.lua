@@ -23,7 +23,7 @@ vim.opt.sidescrolloff = 8
 vim.opt.scrolloff = 8
 vim.opt.wildmode = "longest:full,full"
 vim.opt.shadafile = "NONE"
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("catppuccin-macchiato")
 
 if vim.fn.has("win32") == 1 then
     vim.opt.shell = "bash"
